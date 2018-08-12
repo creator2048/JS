@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/creator2048/JS/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/creator2048/JS/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function showTips(spanID,msg) {
+            var span = document.getElementById(spanID);
+            span.innerHTML = msg;
+        }
+        function checkUsername() {
+            var uValue = document.getElementById("username").value;
+//          alert(uValue);
+            var span = document.getElementById("span_username");
+            if (uValue.length < 6){
+                span.innerHTML = "抱歉，太短了。"
+            }else{
+                span.innerHTML = "可以了。"
+            }
+        }
+        function checkForm() {
+            var flag = checkUsername();
+            return flag;
+        }
+    </script>
+</head>
+<body>
+    <form action="../images/03.jpg" onsubmit="return checkForm()">
+        用户名：<input type="text" id="username" onblur="checkUsername()" onfocus="showTips('span_username','用户名不得少于六位')" onkeyup="checkUsername()"/><span id="span_username"></span><br/>
+        <input type="submit" value="注册">
+    </form>
+</body>
+</html>
